@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Authors</h1>
+<h1>Tags</h1>
 
 <table>
   <thead>
@@ -11,9 +11,9 @@
   </thead>
 
   <tbody>
-    <% @authors.each do |author| %>
+    <% @tags.each do |tag| %>
       <tr>
-        <td><%= author.name %></td>
+        <td><%= tag.name %></td>
       </tr>
     <% end %>
   </tbody>
