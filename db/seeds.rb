@@ -9,6 +9,15 @@ require 'factory_bot_rails'
 
 include FactoryBot::Syntax::Methods
 
-100.times do |number|
-  create :book
+10.times do
+  create :category
+  create :author
+end
+
+100.times do
+  book = build(:book) do |book|
+    book.category = Category.all.sample
+    book.author = Author.all.sample
+  end
+  book.save!
 end

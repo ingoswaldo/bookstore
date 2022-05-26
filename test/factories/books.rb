@@ -10,6 +10,9 @@ FactoryBot.define do
     published_at { Faker::Time.backward(days: 14, period: :evening) }
     number_of_pages { Faker::Number.between(from: 1, to: 500) }
 
-    author
+    before(:build) do |book|
+      book.category = FactoryBot.build(:category)
+      book.author = FactoryBot.build(:author)
+    end
   end
 end
