@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 2022_05_31_144551) do
     t.datetime "birthday"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   add_foreign_key "book_tags", "books"
