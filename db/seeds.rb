@@ -19,6 +19,7 @@ end
   create :category
   create :author
   create :tag
+  create :user
 end
 
 100.times do
