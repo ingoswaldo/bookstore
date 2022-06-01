@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @comment.message %>
+</p>
+
+<p>
+  <strong>Approved:</strong>
+  <%= @comment.approved %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @comment.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_book_comment_path(@book, @comment) %> |
+<%= link_to 'Back', book_comments_path %>

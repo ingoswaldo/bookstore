@@ -42,4 +42,9 @@ end
     book_tag.book = book
     book_tag.tag = tag
   end
+
+  build_and_save_model(:comment) do |comment|
+    comment.book = Book.all.sample
+    comment.user = User.all.sample
+  end
 end
