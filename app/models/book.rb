@@ -1,6 +1,7 @@
 class Book < ApplicationRecord
   belongs_to :author
   belongs_to :category
+  has_many :comments, dependent: :destroy
   has_many :book_tags
   has_many :tags, through: :book_tags, dependent: :destroy
 
