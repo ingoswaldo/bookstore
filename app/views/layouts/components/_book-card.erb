@@ -19,14 +19,17 @@
         <p class="card-text"><%= book.category.name %></p>
         <h3 class="text-secondary">Published At</h3>
         <p class="card-text"><%= book.published_at.to_s(:rfc822) %></p>
-        <ul class="list-group list-group-flush mt-3 mb-4">
-          <h3 class="text-secondary">Tags</h3>
-          <% book.tags.each do |tag| %>
-            <li class="list-group-item"><%= tag.name %></li>
-          <% end %>
-        </ul>
-        <%= link_to 'Back', books_path, class: 'w-25 btn btn-lg btn-outline-primary' %>
-      <% end %>
+        <% if book.tags.size > 0 %>
+          <ul class="list-group list-group-flush mt-3 mb-4">
+            <h3 class="text-secondary">Tags</h3>
+            <% book.tags.each do |tag| %>
+              <li class="list-group-item"><%= tag.name %></li>
+            <% end %>
+          </ul>
+        <% end %>
+        <%= link_to 'Back', books_path, class: 'w-25 btn btn-lg btn-outline-secondary' %>
+        <%= link_to 'Show Comments', book_comments_path(book), class: 'w-25 btn btn-lg btn-outline-primary' %>
+    <% end %>
     </div>
   </div>
 </div>
