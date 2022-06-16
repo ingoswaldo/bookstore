@@ -8,12 +8,11 @@
 <div class="row">
   <% @comments.each do |comment| %>
     <div class="col-md-3">
-      <%= render 'layouts/components/row-rounded', title: comment.user.full_name, subtitle: comment.message %>
+      <%= render 'layouts/components/row-rounded', title: comment.user.full_name, subtitle: ['"', comment.message, '"'].join('') %>
     </div>
   <% end %>
 </div>
 
 <br>
 
-<%= link_to 'Back', book_path(@book), class: 'w-25 btn btn-lg btn-outline-secondary' %>
-<%= link_to 'New Comment', new_book_comment_path(@book), class: 'w-25 btn btn-lg btn-outline-primary' %>
+<%= link_to 'Back', book_path(@book), class: 'w-25 btn btn-lg btn-outline-primary' %>
