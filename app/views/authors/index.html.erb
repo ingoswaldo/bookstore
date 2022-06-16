@@ -1,22 +1,7 @@
-<p id="notice"><%= notice %></p>
+<div class="row row-cols-1 row-cols-md-4 mb-3 text-center">
+  <% @authors.each do |author| %>
+    <%= render 'layouts/components/row-image', title: author.name, text_secondary: "Books Published: #{author.books.active.size}" %>
+  <% end %>
+</div>
 
-<h1>Authors</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @authors.each do |author| %>
-      <tr>
-        <td><%= author.name %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to 'Back', root_path %>
+<%= link_to 'Back', root_path, class: 'w-25 btn btn-lg btn-outline-primary' %>

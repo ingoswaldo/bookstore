@@ -1,0 +1,35 @@
+<% show_more = show_more.presence || false %>
+<div class="col">
+  <div class="card mb-4 rounded-3 shadow-sm">
+    <div class="card-header py-3">
+      <h4 class="my-0 fw-normal"><%= book.name %></h4>
+    </div>
+    <div class="card-body">
+      <h1 class="card-title pricing-card-title">$<%= book.price %></h1>
+      <h3 class="text-secondary ">Description</h3>
+      <p class="card-text"><%= book.description %></p>
+      <h3 class="text-secondary">Pages</h3>
+      <p class="card-text"><%= book.number_of_pages %></p>
+      <% if show_more %>
+        <%= link_to 'Show More', book_path(book), class: 'w-100 btn btn-lg btn-outline-primary' %>
+      <% else %>
+        <h3 class="text-secondary">Author</h3>
+        <p class="card-text"><%= book.author.name %></p>
+        <h3 class="text-secondary">Category</h3>
+        <p class="card-text"><%= book.category.name %></p>
+        <h3 class="text-secondary">Published At</h3>
+        <p class="card-text"><%= book.published_at.to_s(:rfc822) %></p>
+        <% if book.tags.size > 0 %>
+          <ul class="list-group list-group-flush mt-3 mb-4">
+            <h3 class="text-secondary">Tags</h3>
+            <% book.tags.each do |tag| %>
+              <li class="list-group-item"><%= tag.name %></li>
+            <% end %>
+          </ul>
+        <% end %>
+        <%= link_to 'Back', books_path, class: 'w-25 btn btn-lg btn-outline-secondary' %>
+        <%= link_to 'Show Comments', book_comments_path(book), class: 'w-25 btn btn-lg btn-outline-primary' %>
+    <% end %>
+    </div>
+  </div>
+</div>
