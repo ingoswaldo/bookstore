@@ -1,6 +1,6 @@
 <div class="row row-cols-1 row-cols-md-4 mb-3 text-center">
   <% @authors.each do |author| %>
-    <%= render 'layouts/components/row-image', title: author.name %>
+    <%= render 'layouts/components/row-image', title: author.name, text_secondary: "Books Published: #{author.books.active.size}" %>
   <% end %>
 </div>
 

@@ -6,9 +6,9 @@
 </div>
 <div class="row mb-2">
   <div class="col-md-6">
-    <%= render 'layouts/components/row-rounded', title: '12', subtitle: 'Total of Books Active' %>
+    <%= render 'layouts/components/row-rounded', title: @total[:books_activated], subtitle: 'Total of Books Active' %>
   </div>
   <div class="col-md-6">
-    <%= render 'layouts/components/row-rounded', title: '11', subtitle: 'Total of authors with books published' %>
+    <%= render 'layouts/components/row-rounded', title: @total[:authors_with_books_published], subtitle: 'Total of authors with books published' %>
   </div>
 </div>

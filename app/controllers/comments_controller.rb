@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   before_action :set_book
 
   def index
-    @comments = @book.comments
+    @comments = @book.comments.approved
   end
 
   private

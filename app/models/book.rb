@@ -10,4 +10,6 @@ class Book < ApplicationRecord
   validates :price, presence: true, numericality: true
   validates :number_of_pages, presence: true, numericality: { only_integer: true }
   validates :published_at, presence: true
+
+  scope :active, -> { where(active: true) }
 end
