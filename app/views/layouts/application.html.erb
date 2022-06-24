@@ -15,10 +15,10 @@
       <header class="d-flex justify-content-center py-3">
         <ul class="nav nav-pills">
           <li class="nav-item"><a href="/" class="nav-link <%= 'active' if current_page?(root_path) %>" aria-current="page">Home</a></li>
-          <li class="nav-item"><a href="/books" class="nav-link <%= 'active' if request.path.include?('/book') %>">Books</a></li>
-          <li class="nav-item"><a href="/authors" class="nav-link <%= 'active' if current_page?(authors_path) %>">Authors</a></li>
+          <li class="nav-item"><a href="/books" class="nav-link <%= 'active' if request.path.include?('/books') %>">Books</a></li>
+          <li class="nav-item"><a href="/authors" class="nav-link <%= 'active' if request.path.include?('/authors') %>">Authors</a></li>
           <li class="nav-item"><a href="/tags" class="nav-link <%= 'active' if current_page?(tags_path) %>">Tags</a></li>
-          <li class="nav-item"><a href="/request-books/new" class="nav-link <%= 'active' if request.path.include?('/request-book') %>">Request a Book</a></li>
+          <li class="nav-item"><a href="/request-books/new" class="nav-link <%= 'active' if request.path.include?('/request-books') %>">Request a Book</a></li>
         </ul>
       </header>
       <main class="flex-shrink-0">
