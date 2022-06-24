@@ -1,7 +1,7 @@
-<div class="row row-cols-1 row-cols-md-4 mb-3 text-center">
-  <% @authors.each do |author| %>
-    <%= render 'layouts/components/row-image', title: author.name, text_secondary: "Books Published: #{author.books.active.size}" %>
+<div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+  <% @books.each do |book|%>
+    <%= render 'layouts/components/book-card', book: book, show_more: true %>
   <% end %>
 </div>
 
-<%= link_to 'Back', root_path, class: 'w-25 btn btn-lg btn-outline-primary' %>
+<%= paginate @books %>
