@@ -1,7 +1,7 @@
-<div class="row row-cols-1 row-cols-md-4 mb-3 text-center">
-  <% @tags.each do |tag| %>
-    <%= render 'layouts/components/row-image', title: tag.name%>
+<div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+  <% @books.each do |book, tag| %>
+    <%= render 'layouts/components/book-card', book: book, tag: { id: book.tag_id, name: book.tag_name }, show_more: true %>
   <% end %>
 </div>
 
-<%= link_to 'Back', root_path, class: 'w-25 btn btn-lg btn-outline-primary' %>
+<%= paginate @books %>

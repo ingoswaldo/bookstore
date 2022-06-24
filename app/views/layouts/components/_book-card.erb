@@ -1,4 +1,7 @@
-<% show_more = show_more.presence || false %>
+<%
+  show_more = show_more.presence || false
+  tag = tag.presence || false
+%>
 <div class="col">
   <div class="card mb-4 rounded-3 shadow-sm">
     <div class="card-header py-3">
@@ -9,6 +12,10 @@
       <% if current_page?(books_path) || current_page?(authors_path) || current_page?(book_path(book)) %>
         <h3 class="text-secondary">Author</h3>
         <%= link_to book.author.name, author_path(book.author), class: 'link-primary' %>
+      <% end %>
+      <% if tag && (current_page?(books_path) || current_page?(tags_path) || current_page?(book_path(book))) %>
+        <h3 class="text-secondary">Tag</h3>
+        <%= link_to tag[:name], tag_path(tag[:id]), class: 'link-primary' %>
       <% end %>
       <h3 class="text-secondary ">Description</h3>
       <p class="card-text"><%= book.description %></p>
@@ -39,7 +46,7 @@
             <% end %>
           </div>
         <% end %>
-        <%= link_to 'Back', books_path, class: 'w-25 btn btn-lg btn-outline-primary' %>
+        <%= link_to 'Back', :back, class: 'w-25 btn btn-lg btn-outline-primary' %>
     <% end %>
     </div>
   </div>
