@@ -1,0 +1,16 @@
+<h1 class="text-primary"><%= @book.name %></h1>
+<% if @comments.size < 1 %>
+  <h3 class="text-secondary">No comments for this book</h3>
+<% end %>
+
+<div class="row">
+  <% @comments.each do |comment| %>
+    <div class="col-md-3">
+      <%= render 'layouts/components/row-rounded', title: comment.user.full_name, subtitle: ['"', comment.message, '"'].join('') %>
+    </div>
+  <% end %>
+</div>
+
+<br>
+
+<%= link_to 'Back', :back, class: 'w-25 btn btn-lg btn-outline-secondary' %>

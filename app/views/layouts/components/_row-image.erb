@@ -1,0 +1,13 @@
+<%
+  color = SecureRandom.hex(3)
+  text_secondary = text_secondary.presence || false
+  width = width.presence || 140
+  height = height.presence || 140
+%>
+<div class="col">
+  <svg class="bd-placeholder-img rounded-circle" width="<%= width %>" height="<%= height %>" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#<%= color %>"></rect><text x="50%" y="50%" fill="#<% color %>" dy=".3em"></text></svg>
+  <h4 class="text-primary"><%= title %></h4>
+  <% if text_secondary %>
+    <h5 class="text-secondary"><%= text_secondary %></h5>
+  <% end %>
+</div>

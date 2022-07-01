@@ -1,3 +1,9 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :authors, only: [:index, :show]
+  resources :books, only: [:index, :show]
+  resources :request_books, only: [:new, :create], path: "request-books"
+  resources :tags, only: [:index, :show]
+  resources :users, except: [:index, :destroy]
+
+  root 'welcome#index'
 end

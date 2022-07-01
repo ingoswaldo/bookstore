@@ -1,0 +1,34 @@
+<%= form_with(model: @request_book, class: "mx-auto w-75") do |form| %>
+  <h1 class="mb-4">New Request Book </h1>
+  <%= render 'layouts/components/alert-success', message: notice if notice %>
+  <%= render 'layouts/components/alert-error', errors: @user.errors %>
+  <%= render 'layouts/components/alert-error', errors: @request_book.errors if @user.errors.none? %>
+
+  <div class="row mb-3">
+    <div class="col">
+      <%= form.text_field :name, class: "form-control #{errors_include?(@request_book.errors, :name)? 'is-invalid': ''}", placeholder: "Book Name", aria_label: "Book Name", autofocus: true %>
+    </div>
+    <div class="col">
+      <%= form.text_field :first_name, value: @user.first_name, class: "form-control #{errors_include?(@user.errors, :first_name)? 'is-invalid': ''}", placeholder: "First Name", aria_label: "First Name" %>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col">
+      <%= form.text_field :last_name, value: @user.last_name, class: "form-control #{errors_include?(@user.errors, :last_name)? 'is-invalid': ''}", placeholder: "Last Name", aria_label: "Last Name" %>
+    </div>
+    <div class="col">
+      <%= form.email_field :email, value: @user.email, class: "form-control #{errors_include?(@user.errors, :email)? 'is-invalid': ''}", placeholder: "Email", aria_label: "Email" %>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-1">
+      <%= link_to 'Back', :back, class: 'btn btn-lg btn-outline-secondary' %>
+    </div>
+    <div class="col-1">
+      <%= form.submit :Save, class: "btn btn-lg btn-outline-primary" %>
+    </div>
+  </div>
+<% end %>
+
